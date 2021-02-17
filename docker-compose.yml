@@ -1,0 +1,14 @@
+version: "3"
+services:
+  server:
+    build: back-end
+    ports:
+      - "5500:5500"
+  client:
+    build: 
+      context: ./front-end
+      dockerfile: front.docker
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
