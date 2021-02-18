@@ -4,10 +4,12 @@ services:
     build: back-end
     ports:
       - "5500:5500"
+    volumes:
+      - ./log:/log
   client:
     build: 
-      context: ./front-end
-      dockerfile: front.docker
+      context: ./
+      dockerfile: ./front.docker
     ports:
       - "3000:3000"
     depends_on:
